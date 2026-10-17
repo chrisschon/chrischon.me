@@ -9,7 +9,23 @@
   .cs-gate-help { font-size: 14px; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 </style></head><body>
-<title>Chris Chon Canvas</title>
+<title>Chris Chon · Product Designer</title>
+<meta name="description" content="Chris Chon is a Lead Product Designer in San Francisco designing health and fitness products people can trust, increasingly with AI at their core.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231d1b22'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='26' font-weight='600' fill='%23f7f6f2'%3ECC%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chris Chon">
+<meta property="og:title" content="Chris Chon · Product Designer">
+<meta property="og:description" content="Chris Chon is a Lead Product Designer in San Francisco designing health and fitness products people can trust, increasingly with AI at their core.">
+<meta property="og:url" content="https://chrischon.me/">
+<meta property="og:image" content="https://chrischon.me/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chris Chon · Product Designer">
+<meta name="twitter:description" content="Chris Chon is a Lead Product Designer in San Francisco designing health and fitness products people can trust, increasingly with AI at their core.">
+<meta name="twitter:image" content="https://chrischon.me/og.png">
+<link rel="canonical" href="https://chrischon.me/">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -214,12 +230,17 @@
   .bar { background: color-mix(in srgb, var(--panel) 94%, transparent); border: 1px solid var(--line); box-shadow: var(--shadow); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
   #topnav { top: calc(env(safe-area-inset-top, 0px) + 14px); left: max(16px, env(safe-area-inset-left, 0px)); display: flex; gap: 2px; align-items: center; border-radius: 999px; padding: 4px 8px 4px 4px; }
   #topnav button { padding: 7px 12px; border-radius: 999px; font-size: 13px; font-weight: 500; }
-  #topnav button:hover { background: var(--canvas); }
+  #topnav button:hover, #topnav .navlink:hover { background: var(--canvas); }
+  #topnav .navlink { padding: 7px 12px; border-radius: 999px; font-size: 13px; font-weight: 500; color: inherit; text-decoration: none; }
+  @media (max-width: 440px) { #topnav .navlink { display: none; } }
   #topnav .logo { width: 32px; height: 32px; padding: 0; display: grid; place-items: center; background: var(--ink); color: var(--canvas); font: 500 13px/1 var(--display); letter-spacing: -0.01em; }
   #topnav .logo:hover { background: var(--ink); }
   #teams { top: calc(env(safe-area-inset-top, 0px) + 14px); right: max(16px, env(safe-area-inset-right, 0px)); display: flex; align-items: center; gap: 8px; border-radius: 999px; padding: 4px 12px 4px 4px; font-size: 12px; font-weight: 500; color: var(--muted); }
   #teams .pile { display: flex; } #teams .pile span { width: 28px; height: 28px; margin-left: -6px; border-radius: 50%; display: grid; place-items: center; font: 700 11px/1 var(--body); border: 2px solid var(--panel); }
   #teams .pile span:first-child { margin-left: 0; }
+  #teams { cursor: pointer; } #teams:hover { color: var(--ink); }
+  #teams .pile span.logo-chip { background: #fff !important; overflow: hidden; }
+  #teams .pile span.logo-chip img { width: 70%; height: 70%; object-fit: contain; }
 
   #layers { top: calc(env(safe-area-inset-top, 0px) + 66px); left: max(16px, env(safe-area-inset-left, 0px)); width: 236px; border-radius: 14px; padding: 8px; font-size: 13px; }
   #layers header { display: flex; justify-content: space-between; align-items: center; padding: 6px 8px 8px; }
@@ -389,7 +410,7 @@
   .cs-impact { background: var(--acc); border-radius: 24px; padding: 28px; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .cs-impact .cs-stat b { font-size: clamp(34px, 3.8vw, 54px); white-space: nowrap; }
   .cs[data-accent="pink"] { --acc: var(--pink); --acc-ink: var(--pink-ink); }
-  .cs[data-accent="sky"] { --acc: var(--sky); --acc-ink: var(--sky-ink); }
+  .cs[data-accent="sky"] { --acc: var(--sky); --acc-ink: var(--sky-ink); } .cs[data-accent="peach"] { --acc: var(--peach); --acc-ink: var(--peach-ink); }
   .cs[data-accent="mint"] { --acc: var(--mint); --acc-ink: var(--mint-ink); }
   .cs[data-accent="butter"] { --acc: var(--butter); --acc-ink: var(--butter-ink); }
   .cs-nda { display: grid; gap: 12px; padding: 28px; border-radius: 22px; background: var(--acc); max-width: 640px; }
@@ -532,8 +553,8 @@
       <div class="flabel"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 2h8v6l-2 2H2z"/></svg>About me</div>
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <h2 style="font: 500 52px/1 var(--display); letter-spacing: -0.01em;">About me</h2>
-      <p style="margin-top: 20px; font-size: 20px; color: var(--ink);">I'm a designer who thrives on collaboration, empathy, and solving complex problems with simplicity.</p>
-      <p style="margin-top: 14px; font-size: 16px;">I'm passionate about health and fitness design, and I love creating experiences that put people first and make a real impact. Over eight years I've shipped work for patients, athletes, shoppers and factory teams.</p>
+      <p style="margin-top: 20px; font-size: 20px; color: var(--ink);">Over eight years, I've designed for patients, athletes, shoppers and factory teams.</p>
+      <p style="margin-top: 14px; font-size: 16px;">Today I lead product design for an AI health coach. Most of my work lives where trust decides everything: committing to a care program, keeping a new habit, understanding your own health. I work closely with product, engineering, research and data, and along the way I've built design systems and led small design teams.</p>
     </section>
 
     <p class="obj note-hand" data-x="1790" data-y="-70" style="rotate: 2deg;">drag us around ↓</p>
@@ -551,9 +572,9 @@
       <p class="eyebrow" style="color: var(--sky-ink)">Focus</p>
       <ul style="font-weight: 500;"><li>Health and care experiences</li><li>Fitness and community</li><li>Growth and commerce</li><li>Research that changes process</li></ul>
     </div>
-    <div class="obj note" data-note data-x="2060" data-y="250" style="background: var(--lilac); rotate: -1.5deg;">
+    <div class="obj note" id="path-note" data-note data-x="2060" data-y="250" style="background: var(--lilac); rotate: -1.5deg;">
       <p class="eyebrow" style="color: var(--lilac-ink)">Path</p>
-      <ol style="font: 400 13px/1.5 var(--mono);"><li>Tesla · UX research</li><li>Apple · product design</li><li>lululemon · senior</li><li>Sesame · lead</li><li>Thrive AI Health · lead</li></ol>
+      <ol style="font: 400 13px/1.5 var(--mono);"><li>Tesla · UX Researcher</li><li>Apple · Product Designer</li><li>lululemon · Senior Product Designer</li><li>Sesame · Lead Product Designer</li><li>Thrive AI Health · Lead Product Designer</li></ol>
     </div>
 
     <!-- WORK -->
@@ -583,7 +604,7 @@
       <div class="meta">
         <div><p class="when">2025–now</p><h3>Thrive AI Health <span>· Lead Product Designer</span></h3>
         <p>Leading product design for a personalized AI health coach that helps people build healthier daily habits.</p></div>
-        <button type="button" class="go" data-go="contact">Case study on request →</button>
+        <button type="button" class="go" data-cs="thrive">Read the overview →</button>
       </div>
     </article>
 
@@ -630,7 +651,6 @@
         <p class="when">2020</p>
         <h3>myD-H Assistant <span>· Product Designer</span></h3>
         <p>An iPad app that helps patients with serious illness keep up with their care team during long hospital stays.</p>
-        <button type="button" class="go" data-cs="myd">Read case study →</button>
       </div>
     </article>
 
@@ -708,6 +728,7 @@
       <div class="chips" style="margin-top: 16px;">
         <a class="chip" href="mailto:christopherchondesign@gmail.com?subject=Hello!">Email ↗</a>
         <a class="chip" href="https://www.linkedin.com/in/christopher-chon/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="chip resume-link" href="resume.pdf" target="_blank" rel="noopener" hidden>Resume ↗</a>
       </div>
       <footer>© 2026 Chris Chon</footer>
     </section>
@@ -724,9 +745,10 @@
   <button type="button" data-go="about">About</button>
   <button type="button" data-go="ai">AI</button>
   <button type="button" data-go="contact">Get in touch</button>
+  <a class="navlink resume-link" href="resume.pdf" target="_blank" rel="noopener" hidden>Resume</a>
 </nav>
 
-<div id="teams" class="ui bar"><div class="pile" id="pile"></div>Teams I've designed with</div>
+<button type="button" id="teams" class="ui bar" aria-label="Teams I've designed with: show my path"><span class="pile" id="pile"></span>Teams I've designed with</button>
 
 <aside id="layers" class="ui bar" data-open="true" aria-label="Layers">
   <header><strong>Layers</strong><button type="button" class="tog" id="layers-tog" aria-label="Collapse layers" aria-expanded="true"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.5l3 3 3-3"/></svg></button></header>
@@ -800,10 +822,18 @@
   });
 
   /* Teams facepile */
-  [['T','Thrive AI Health','--peach','--peach-ink'],['S','Sesame','--lilac','--lilac-ink'],['L','lululemon','--pink','--pink-ink'],['A','Apple','--sky','--sky-ink'],['T','Tesla','--butter','--butter-ink']].forEach(([l,n,bg,fg]) => {
+  // Company logos live in logos/<slug>.png (or .svg). Until a file exists, the chip shows the initial.
+  [['T','Thrive AI Health','thrive','--peach','--peach-ink'],['S','Sesame','sesame','--lilac','--lilac-ink'],['L','lululemon','lululemon','--pink','--pink-ink'],['A','Apple','apple','--sky','--sky-ink'],['T','Tesla','tesla','--butter','--butter-ink']].forEach(([l,n,slug,bg,fg]) => {
     const s = document.createElement('span'); s.textContent = l; s.title = n;
     s.style.cssText = `background:var(${bg});color:var(${fg})`; $('#pile').appendChild(s);
+    const tryLogo = exts => { if (!exts.length) return; const im = new Image(); im.alt = n;
+      im.onload = () => { s.textContent = ''; s.classList.add('logo-chip'); s.appendChild(im); };
+      im.onerror = () => tryLogo(exts.slice(1)); im.src = `logos/${slug}.${exts[0]}`; };
+    tryLogo(['svg', 'png']);
   });
+  $('#teams').addEventListener('click', () => { const n = $('#path-note'); if (!n) return; hideHint(); select(null); flyTo(pad(boxOf(n), 60), 1.4); });
+
+  fetch('resume.pdf', { method: 'HEAD' }).then(r => { if (r.ok) $$('.resume-link').forEach(a => a.hidden = false); }).catch(() => {});
 
   /* ---------- Camera ---------- */
   const cam = { x: 0, y: 0, z: 1 };
@@ -1087,12 +1117,12 @@
   const frameEl = id => $(`[data-frame="${id}"]`);
   const FRAMES = {
     hello: 'Intro. Chris Chon, product designer in San Francisco who designs health and fitness products people can trust, increasingly with AI at their core.',
-    about: 'About. Thrives on collaboration, empathy and solving complex problems with simplicity. Passionate about health and fitness design; puts people first. Over eight years of experience. Studied Human-Centered Design and Government at Dartmouth College.',
-    thrive: 'Thrive AI Health (current role). Lead Product Designer, leading product design for a personalized AI health coach that helps people build healthier daily habits. No public case study; details available on request.',
-    sesame: 'Sesame. Lead Product Designer. Designing growth and care features for patients on sesamecare.com and the Sesame app. Work spans patient research, the booking journey, program pages and intake, and provider tools that use AI. Specific results and details are in the full case study.',
-    lululemon: 'lululemon. Senior Product Designer. Designing fitness and community features for users in the lululemon ecosystem on the lululemon app, the lululemon Studio Mirror (formerly MIRROR), its companion app, and the website. Projects include lululemon Membership, class workout controls for device connectivity, and the app design system. Specific results and details are in the full case study.',
+    about: 'About. Over eight years, Chris has designed for patients, athletes, shoppers and factory teams. Today he leads product design for an AI health coach. His work focuses on where trust matters most: committing to a care program, keeping a new habit, understanding your own health. Works closely with product, engineering, research and data; has built design systems and led small design teams. Studied Human-Centered Design and Government at Dartmouth College.',
+    thrive: 'Thrive AI Health (current role, 2025 to now). Lead Product Designer for a personalized AI health coach that helps people build healthier daily habits. Chris designed the GLP-1 coaching experience: medication taking, symptom logging and learning, nutrition and activity recommendations and learnings, pattern recognition, patient education, and accountability. An overview is on the canvas; deeper details are shared in conversation.',
+    sesame: 'Sesame (2024 to 2025). Lead Product Designer, managing 2 designers and working with the CPO and CTO. Rebuilt the patient journey around trust as Sesame moved from pay-per-visit care to ongoing care programs: patient research, information architecture, the home page, a program landing page and intake, medication pages, a provider portal, and a first version of an AI chat that helps patients get to care. Built Tahini, Sesame\'s design system, with the design systems engineer. Specific results are in the full case study.',
+    lululemon: 'lululemon (2022 to 2024). Senior Product Designer, managing 2 e-commerce designers. Designed fitness and community features across the lululemon Studio app, the Mirror and the website. Projects: lululemon Membership (the in-app membership experience, written with product and built with engineering and data), class workout controls that made device connectivity clear, and the app design system, which Chris led with two other designers, including handoff documentation and Figma guides for engineering. Specific results are in the full case studies.',
     apple: 'Apple. Product Design. Designed desktop and mobile applications for apple.com, the Apple Store app, and internal applications, including shopping and ordering experiences. Specific results and details are in the full case study.',
-    myd: 'myD-H Assistant. Product Designer on a team of four Dartmouth seniors, January to June 2020, with the Serious Illness Health Care Delivery Incubator at The Dartmouth Institute and Dartmouth-Hitchcock Medical Center. A two-part iPad experience for patients with serious illness during long inpatient stays: patients record and replay conversations with providers (with transcripts and tappable medical terms), take personal notes and get to know their care team; providers use a tablet outside the room to catch up on what other providers said. Built on interviews and observations with providers, patients and families, a human-centered design process, and three rounds of prototyping, with a focus on patients 65 and older. Details are in the full case study.',
+    myd: 'myD-H Assistant (2020). Product Designer, with the Serious Illness Health Care Delivery Incubator at The Dartmouth Institute and Dartmouth-Hitchcock Medical Center. A two-part iPad experience for patients with serious illness during long hospital stays: patients record and replay conversations with providers (with transcripts and tappable medical terms), take personal notes and get to know their care team; providers use a tablet outside the room to catch up on what other providers said. Built on interviews and observations with providers, patients and families, and three rounds of prototyping, with a focus on patients 65 and older. There is no public case study; details are shared in conversation.',
     tesla: 'Tesla. UX Researcher. Global vehicle readiness, during the Model 3 production ramp in the second half of 2018. Conducted UX research to justify business cases and drive change in quality procedures; helped develop and implement changes in quality procedures, engineering processes and vehicle design. The project is under NDA, so details are shared only in conversation with Chris.',
     genui: 'Generative UI demo (on this canvas). A concept where an AI fills a fixed coaching-card schema and the design system controls layout, color, length limits, a referral path for medical questions, and a fallback state. Shows how Chris thinks about designing AI products.',
     principles: 'How I design with AI (on this canvas). Chris\'s principles: show the plan then act; answer from sources; design the system, not the sentence; say what you don\'t know; keep people in control.'
@@ -1387,13 +1417,13 @@ Otherwise reply only:
 
   /* ================= Case studies (L2) ================= */
   const CASES = {
+    thrive: { file: 'case-studies/thrive.html', name: 'Thrive AI Health', orig: '' },
     sesame: { file: 'case-studies/sesame.html', name: 'Sesame', orig: 'https://www.chrischon.me/sesame' },
     lululemon: { file: 'case-studies/lululemon.html', name: 'lululemon', orig: 'https://www.chrischon.me/lululemon' },
     membership: { file: 'case-studies/membership.html', name: 'Membership', parent: 'lululemon', orig: 'https://www.chrischon.me/lululemon' },
     connectivity: { file: 'case-studies/connectivity.html', name: 'Connectivity', parent: 'lululemon', orig: 'https://www.chrischon.me/lululemon' },
     'design-system': { file: 'case-studies/design-system.html', name: 'Design system', parent: 'lululemon', orig: 'https://www.chrischon.me/lululemon' },
     apple: { file: 'case-studies/apple.html', name: 'Apple', orig: 'https://www.chrischon.me/apple' },
-    myd: { file: 'case-studies/myd.html', name: 'myD-H Assistant', orig: 'https://www.chrischon.me/myd-hassistant' },
     tesla: { file: 'case-studies/tesla.html', name: 'Tesla', orig: 'https://www.chrischon.me/tesla' }
   };
   const CASE_IDS = Object.keys(CASES);
@@ -1401,7 +1431,7 @@ Otherwise reply only:
 
   /* Password protection for case studies (live site). Pages and images are AES-GCM encrypted;
      the key comes from the password via PBKDF2, so the password isn't stored anywhere. */
-  const LOCK = {"salt": "34kwbVJJlzb5mnn0L0jXcw==", "iter": 250000, "check": "jSfaWUJZsOZOzS/obAP9EM6x+SfosuQvJZ7C7M2OPK5Ai8+YeQuTDQ==", "imgs": ["a-app-flow.jpg", "a-entry.jpg", "a-ia.jpg", "a-journey-map.jpg", "a-paidy.jpg", "a-progress.jpg", "a-review.jpg", "a-sketch-checklist.jpg", "a-sketch-progressbar.jpg", "ds-anatomy.jpg", "ds-annotations.jpg", "ds-button.jpg", "ds-cover.jpg", "ds-eng-guides.jpg", "ds-overview.jpg", "ll-benefits-sheet.jpg", "ll-connectivity-thumb.jpg", "ll-controls-first.jpg", "ll-ia-new.jpg", "ll-ia-old.jpg", "ll-membership-card.jpg", "ll-membership-cover.jpg", "ll-option-activity.jpg", "ll-option-home.jpg", "ll-pkg-final.jpg", "ll-pkg-render.jpg", "ll-settings-card.jpg", "ll-stage1.jpg", "ll-stage2.jpg", "ll-stage3-final.jpg", "m-care-team.jpg", "m-comm-map.jpg", "m-home.jpg", "m-journey.jpg", "m-process.jpg", "m-provider.jpg", "m-setup.jpg", "m-transcript.jpg", "m-user-needs.jpg", "s-ai-preview.jpg", "s-ask-ai.jpg", "s-home-hero.jpg", "s-ia-new.jpg", "s-ia-old.jpg", "s-intake.jpg", "s-medication-pages.jpg", "s-program-pages.jpg", "s-provider-portal.jpg", "s-super-menu.jpg"]};
+  const LOCK = {"salt": "gh/XIQ9BhS69fp8k4Vwe0g==", "iter": 250000, "check": "T36vYsHaBMaE3nphZeLQ9orvEb8tzIydiC4tLe8LCFjt7WFhYOX4dw==", "imgs": ["a-app-flow.jpg", "a-entry.jpg", "a-ia.jpg", "a-journey-map.jpg", "a-paidy.jpg", "a-progress.jpg", "a-review.jpg", "a-sketch-checklist.jpg", "a-sketch-progressbar.jpg", "ds-anatomy.jpg", "ds-annotations.jpg", "ds-button.jpg", "ds-cover.jpg", "ds-eng-guides.jpg", "ds-overview.jpg", "ll-benefits-sheet.jpg", "ll-connectivity-thumb.jpg", "ll-controls-first.jpg", "ll-ia-new.jpg", "ll-ia-old.jpg", "ll-membership-card.jpg", "ll-membership-cover.jpg", "ll-option-activity.jpg", "ll-option-home.jpg", "ll-pkg-final.jpg", "ll-pkg-render.jpg", "ll-settings-card.jpg", "ll-stage1.jpg", "ll-stage2.jpg", "ll-stage3-final.jpg", "s-ai-preview.jpg", "s-ask-ai.jpg", "s-home-hero.jpg", "s-ia-new.jpg", "s-ia-old.jpg", "s-intake.jpg", "s-medication-pages.jpg", "s-program-pages.jpg", "s-provider-portal.jpg", "s-super-menu.jpg"]};
   const b64 = s => Uint8Array.from(atob(s), ch => ch.charCodeAt(0));
   let csKey = null;
   const KEY_STORE = 'cc-cs-key';
@@ -1523,6 +1553,17 @@ Otherwise reply only:
     title.style.top = y1 + 'px';
     $('#work-note').style.top = (y1 + 30) + 'px';
     const wide = $$('.proj.wide'), small = $$('.proj:not(.wide):not(.other)'), other = $$('.proj.other');
+    if (innerWidth < 700) {
+      // Match home(): the intro frame (plus 10px padding) fills the usable width.
+      const a = area(), hw = hero.offsetWidth, z = Math.min(a.w / (hw + 20), 1);
+      const left = a.cx - (hw / 2) * z;                       // screen x of canvas x = 0
+      const step = Math.round((innerWidth - 16 - left) / z);  // next card starts 16px inside the right edge
+      [wide, small, other].forEach(row => row.forEach((f, i) => { f.style.width = hw + 'px'; f.style.left = (i * step) + 'px'; }));
+      if ($('#tesla-note')) $('#tesla-note').style.left = step + 'px';
+    } else {
+      [...wide, ...small, ...other].forEach(f => { f.style.width = f.dataset.w + 'px'; f.style.left = f.dataset.x + 'px'; });
+      if ($('#tesla-note')) $('#tesla-note').style.left = $('#tesla-note').dataset.x + 'px';
+    }
     const y2 = y1 + title.offsetHeight + 90;
     [wide, small].forEach(set => { set.forEach(f => f.style.minHeight = ''); const m = Math.max(...set.map(f => f.offsetHeight)); set.forEach(f => f.style.minHeight = m + 'px'); });
     wide.forEach(f => f.style.top = y2 + 'px');
@@ -1549,7 +1590,7 @@ Otherwise reply only:
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { layout(); if (!g && !anim && hint.dataset.show === 'true' && !csOpen) home(); });
   { const id = location.hash.slice(1); if (CASES[id]) { const f = frameEl(id); if (f) { const b = pad(boxOf(f), 24), a = area(); cam.z = Math.min(a.w / b.w, a.h / b.h, 1); cam.x = a.cx - (b.x + b.w / 2) * cam.z; cam.y = a.cy - (b.y + b.h / 2) * cam.z; apply(); } openCase(id, false); } }
   let lastW = innerWidth;
-  addEventListener('resize', () => { if (Math.abs(innerWidth - lastW) > 120) { lastW = innerWidth; home(); } else apply(); });
+  addEventListener('resize', () => { if (Math.abs(innerWidth - lastW) > 120 || (innerWidth < 700) !== (lastW < 700)) { lastW = innerWidth; layout(); home(); } else apply(); });
 })();
 </script>
 

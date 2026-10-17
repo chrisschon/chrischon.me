@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chris Chon · Product Designer</title>
+<meta name="robots" content="noindex">
+<script>
+  // Old Squarespace links (chrischon.me/sesame, /apple, /lululemon/...) open the matching case study on the canvas.
+  (function () {
+    var p = location.pathname.toLowerCase().replace(/\/+$/, '');
+    var map = [
+      [/^\/lululemon\/(app-)?design-system/, 'design-system'],
+      [/^\/lululemon\/(class-)?workout-controls|^\/lululemon\/connectivity/, 'connectivity'],
+      [/^\/lululemon\/(lululemon-)?membership/, 'membership'],
+      [/^\/lululemon/, 'lululemon'],
+      [/^\/sesame/, 'sesame'],
+      [/^\/apple/, 'apple'],
+      [/^\/tesla/, 'tesla'],
+      [/^\/thrive/, 'thrive']
+    ];
+    var hash = '';
+    for (var i = 0; i < map.length; i++) if (map[i][0].test(p)) { hash = '#' + map[i][1]; break; }
+    location.replace('/' + hash);
+  })();
+</script>
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; font: 16px/1.5 -apple-system, BlinkMacSystemFont, sans-serif; background: #f7f6f3; color: #1e1b26; }
+  a { color: #1f8a5a; }
+</style>
+</head>
+<body>
+  <p>Taking you to <a href="/">chrischon.me</a>…</p>
+</body>
+</html>
