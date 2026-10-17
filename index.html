@@ -239,8 +239,9 @@
   #teams .pile { display: flex; } #teams .pile span { width: 28px; height: 28px; margin-left: -6px; border-radius: 50%; display: grid; place-items: center; font: 700 11px/1 var(--body); border: 2px solid var(--panel); }
   #teams .pile span:first-child { margin-left: 0; }
   #teams { cursor: pointer; } #teams:hover { color: var(--ink); }
-  #teams .pile span.logo-chip { background: #fff !important; overflow: hidden; }
+  #teams .pile span.logo-chip { background: #fff !important; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(30,27,38,.12); }
   #teams .pile span.logo-chip img { width: 70%; height: 70%; object-fit: contain; }
+  #teams .pile span.logo-chip.fill img { width: 100%; height: 100%; object-fit: cover; }
 
   #layers { top: calc(env(safe-area-inset-top, 0px) + 66px); left: max(16px, env(safe-area-inset-left, 0px)); width: 236px; border-radius: 14px; padding: 8px; font-size: 13px; }
   #layers header { display: flex; justify-content: space-between; align-items: center; padding: 6px 8px 8px; }
@@ -827,7 +828,7 @@
     const s = document.createElement('span'); s.textContent = l; s.title = n;
     s.style.cssText = `background:var(${bg});color:var(${fg})`; $('#pile').appendChild(s);
     const tryLogo = exts => { if (!exts.length) return; const im = new Image(); im.alt = n;
-      im.onload = () => { s.textContent = ''; s.classList.add('logo-chip'); s.appendChild(im); };
+      im.onload = () => { s.textContent = ''; s.classList.add('logo-chip'); if (slug === 'lululemon' || slug === 'thrive') s.classList.add('fill'); s.appendChild(im); };
       im.onerror = () => tryLogo(exts.slice(1)); im.src = `logos/${slug}.${exts[0]}`; };
     tryLogo(['svg', 'png']);
   });
