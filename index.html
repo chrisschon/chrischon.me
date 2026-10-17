@@ -95,6 +95,8 @@
   .frame.selected::after, .frame:focus-visible::after { opacity: 1; }
   .flabel { position: absolute; font-weight: 500; left: 0; bottom: 100%; max-width: calc(var(--fw, 2000px) * var(--zz, 1)); overflow: hidden; text-overflow: ellipsis; transform-origin: 0 100%; transform: scale(var(--iz)); padding-bottom: 7px; font: 500 13px/1 var(--mono); color: var(--muted); white-space: nowrap; display: flex; gap: 6px; align-items: center; pointer-events: none; }
   .frame.selected .flabel { color: var(--select); }
+  .flabel { transition: opacity .2s; }
+  #world.far .flabel { opacity: 0; }
   .flabel svg { width: 11px; height: 11px; }
   .h { position: absolute; width: calc(9px * var(--iz)); height: calc(9px * var(--iz)); background: var(--panel); border: calc(1.5px * var(--iz)) solid var(--select); border-radius: calc(2px * var(--iz)); opacity: 0; pointer-events: none; z-index: 3; }
   .h.tl { top: calc(-6px * var(--iz)); left: calc(-6px * var(--iz)); } .h.tr { top: calc(-6px * var(--iz)); right: calc(-6px * var(--iz)); }
@@ -838,11 +840,15 @@
 
   /* ---------- Camera ---------- */
   const cam = { x: 0, y: 0, z: 1 };
+  const LZ = 0.28;
   const zlabel = $('#zpct');
   const apply = () => {
     world.style.transform = `translate(${cam.x}px, ${cam.y}px) scale(${cam.z})`;
-    world.style.setProperty('--iz', (1 / cam.z).toFixed(4));
-    world.style.setProperty('--zz', cam.z.toFixed(4));
+    // Frame labels keep a fixed screen size down to LZ, then shrink with the canvas so they never collide; below 20% they fade out.
+    const lz = Math.max(cam.z, LZ);
+    world.style.setProperty('--iz', (1 / lz).toFixed(4));
+    world.style.setProperty('--zz', lz.toFixed(4));
+    world.classList.toggle('far', cam.z < 0.2);
     let s = 22 * cam.z; while (s < 11) s *= 4; while (s > 88) s /= 4;
     vp.style.backgroundSize = `${s}px ${s}px`;
     vp.style.backgroundPosition = `${cam.x}px ${cam.y}px`;
@@ -1595,4 +1601,5 @@ Otherwise reply only:
 })();
 </script>
 
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e9540319e56b46c884c54ee5c5ecee7a"}'></script>
 </body></html>
