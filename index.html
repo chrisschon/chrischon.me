@@ -36,11 +36,11 @@
      world coordinates; the camera pans and zooms over it and flies between frames. */
   :root {
     --canvas: #f7f6f3; --dot: #d9d5df; --ink: #1e1b26; --muted: #6d6878; --line: #e6e2ec;
-    --panel: #ffffff; --select: #0d99ff; --select-ink: #ffffff;
+    --panel: #ffffff; --select: #1a7a4f; --select-ink: #ffffff;
     --pink: #fde3e6; --lilac: #ebe5ff; --mint: #dcf4e8; --sky: #dcecfd; --butter: #fdf1c7; --peach: #ffe6d1;
     --pink-ink: #c43c5a; --lilac-ink: #6a4fd8; --mint-ink: #1f8a5a; --sky-ink: #2a6fc0; --butter-ink: #9a6b00; --peach-ink: #c25e17;
     --device: #ffffff; --skel: #e9e5ef;
-    --ai: #7b61ff; --ai-soft: #f1edff; --ai-ink: #5a3fe0; --on-ai: #ffffff;
+    --ai: #1a7a4f; --ai-soft: #e3f4ea; --ai-ink: #17704a; --on-ai: #ffffff;
     --shadow: 0 1px 2px rgba(30,27,38,.06), 0 10px 30px -10px rgba(30,27,38,.18);
     --display: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif;
     --body: "Nunito", ui-rounded, system-ui, sans-serif;
@@ -51,22 +51,22 @@
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --canvas: #141318; --dot: #2d2b35; --ink: #f1eef6; --muted: #a29dae; --line: #2c2a34;
-      --panel: #1e1c25; --select: #3fadff; --select-ink: #0b0a0f;
+      --panel: #1e1c25; --select: #7fdcac; --select-ink: #0b0a0f;
       --pink: #3a2229; --lilac: #2b2545; --mint: #1b3328; --sky: #1c2b3f; --butter: #382f17; --peach: #3d2718;
       --pink-ink: #ff9fb3; --lilac-ink: #b9a6ff; --mint-ink: #7fdcac; --sky-ink: #8fc1ff; --butter-ink: #f2cf6a; --peach-ink: #ffb07a;
       --device: #26242e; --skel: #3a3744;
-    --ai: #a594ff; --ai-soft: #29233f; --ai-ink: #c9bfff; --on-ai: #120f1f;
+    --ai: #7fdcac; --ai-soft: #1b3328; --ai-ink: #9fe8c1; --on-ai: #0b0a0f;
       --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px -10px rgba(0,0,0,.7);
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
     --canvas: #141318; --dot: #2d2b35; --ink: #f1eef6; --muted: #a29dae; --line: #2c2a34;
-    --panel: #1e1c25; --select: #3fadff; --select-ink: #0b0a0f;
+    --panel: #1e1c25; --select: #7fdcac; --select-ink: #0b0a0f;
     --pink: #3a2229; --lilac: #2b2545; --mint: #1b3328; --sky: #1c2b3f; --butter: #382f17; --peach: #3d2718;
     --pink-ink: #ff9fb3; --lilac-ink: #b9a6ff; --mint-ink: #7fdcac; --sky-ink: #8fc1ff; --butter-ink: #f2cf6a; --peach-ink: #ffb07a;
     --device: #26242e; --skel: #3a3744;
-    --ai: #a594ff; --ai-soft: #29233f; --ai-ink: #c9bfff; --on-ai: #120f1f;
+    --ai: #7fdcac; --ai-soft: #1b3328; --ai-ink: #9fe8c1; --on-ai: #0b0a0f;
     --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px -10px rgba(0,0,0,.7);
     color-scheme: dark;
   }
@@ -361,7 +361,7 @@
   .tool.ai { width: auto; padding: 0 12px 0 10px; gap: 6px; display: flex; align-items: center; color: var(--ai-ink); font-size: 13px; font-weight: 600; }
   .tool.ai:hover { background: var(--ai-soft); color: var(--ai-ink); }
   .tool.ai[aria-pressed="true"] { background: var(--ai); color: var(--on-ai); }
-  .chip.ai-chip { background: var(--mint-ink); color: var(--canvas); border-color: var(--mint-ink); gap: 8px; }
+  .chip.ai-chip { background: var(--ai); color: var(--on-ai); border-color: var(--ai); gap: 8px; }
   .chip.ai-chip:hover { filter: brightness(1.08); }
   .sparkle { width: 15px; height: 15px; flex: none; }
   @keyframes spin { to { rotate: 360deg; } }
@@ -412,6 +412,8 @@
   .plist li { display: grid; grid-template-columns: 250px minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 16px 0; border-top: 1px solid var(--line); }
   .plist h4 { font: 500 18px/1.25 var(--display); margin: 0; }
   .plist p { color: var(--muted); font-size: 15px; }
+  .plist .linkish { background: var(--ai); color: var(--on-ai); border-color: var(--ai); font-weight: 600; padding: 9px 14px; }
+  .plist .linkish:hover { filter: brightness(1.08); border-color: var(--ai); }
 
   /* ---------- Case study (L2) ---------- */
   #cs-view { position: fixed; inset: 0; z-index: 80; background: var(--canvas); overflow-y: auto; overscroll-behavior: contain; opacity: 0; translate: 0 16px; transition: opacity .3s ease, translate .35s cubic-bezier(.2,.8,.2,1); }
