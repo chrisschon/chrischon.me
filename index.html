@@ -731,7 +731,7 @@
       <div class="chips" style="margin-top: 16px;">
         <a class="chip" href="mailto:christopherchondesign@gmail.com?subject=Hello!">Email ↗</a>
         <a class="chip" href="https://www.linkedin.com/in/christopher-chon/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="chip resume-link" href="resume.pdf" target="_blank" rel="noopener" hidden>Resume ↗</a>
+        <a class="chip resume-link" href="Chris_Chon_Resume_2026.pdf" target="_blank" rel="noopener" hidden>Resume ↗</a>
       </div>
       <footer>© 2026 Chris Chon</footer>
     </section>
@@ -748,7 +748,7 @@
   <button type="button" data-go="about">About</button>
   <button type="button" data-go="ai">AI</button>
   <button type="button" data-go="contact">Get in touch</button>
-  <a class="navlink resume-link" href="resume.pdf" target="_blank" rel="noopener" hidden>Resume</a>
+  <a class="navlink resume-link" href="Chris_Chon_Resume_2026.pdf" target="_blank" rel="noopener" hidden>Resume</a>
 </nav>
 
 <button type="button" id="teams" class="ui bar" aria-label="Teams I've designed with: show my path"><span class="pile" id="pile"></span>Teams I've designed with</button>
@@ -836,7 +836,7 @@
   });
   $('#teams').addEventListener('click', () => { const n = $('#path-note'); if (!n) return; hideHint(); select(null); flyTo(pad(boxOf(n), 60), 1.4); });
 
-  fetch('resume.pdf', { method: 'HEAD' }).then(r => { if (r.ok) $$('.resume-link').forEach(a => a.hidden = false); }).catch(() => {});
+  fetch('Chris_Chon_Resume_2026.pdf', { method: 'HEAD' }).then(r => { if (r.ok) $$('.resume-link').forEach(a => a.hidden = false); }).catch(() => {});
 
   /* ---------- Camera ---------- */
   const cam = { x: 0, y: 0, z: 1 };
