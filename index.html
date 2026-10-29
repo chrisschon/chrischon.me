@@ -439,6 +439,13 @@
   .cs-impact .cs-stat b { font-size: clamp(34px, 3.8vw, 54px); white-space: nowrap; }
   .cs[data-accent="pink"] { --acc: var(--pink); --acc-ink: var(--pink-ink); }
   .cs[data-accent="sky"] { --acc: var(--sky); --acc-ink: var(--sky-ink); } .cs[data-accent="peach"] { --acc: var(--peach); --acc-ink: var(--peach-ink); }
+  .cs-phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 900px; margin-top: 24px; }
+  .cs-phones.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 600px; }
+  .cs-sec > .cs-phones { grid-column: 1 / -1; justify-self: center; width: 100%; }
+  .cs-phones .cs-shot { padding: 10px; }
+  .cs-phones .cs-shot img { border-radius: 26px; }
+  @media (max-width: 760px) { .cs-phones, .cs-phones.two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
+
   .cs[data-accent="mint"] { --acc: var(--mint); --acc-ink: var(--mint-ink); }
   .cs[data-accent="butter"] { --acc: var(--butter); --acc-ink: var(--butter-ink); }
   .cs-nda { display: grid; gap: 12px; padding: 28px; border-radius: 22px; background: var(--acc); max-width: 640px; }
@@ -582,8 +589,8 @@
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <h2 style="font: 500 52px/1 var(--display); letter-spacing: -0.01em;">About me</h2>
       <p style="margin-top: 20px; font-size: 20px; color: var(--ink);">Eight years of designing health, fitness and commerce products, from apple.com to an AI health coach.</p>
-      <p style="margin-top: 14px; font-size: 16px;">Today I lead product design at Thrive AI Health, where I designed the AI coaching engine and lead the design team. At Sesame, I partnered with the CPO and CTO to move the company from pay-per-visit care to membership programs. At lululemon, I led the app design system and the launch of lululemon Membership.</p>
-      <p style="margin-top: 12px; font-size: 16px;">Along the way I've grown design teams and led two design systems. My work lives where trust decides everything, and where research and data, not opinions, decide what gets built.</p>
+      <p style="margin-top: 14px; font-size: 16px;">Today I lead product design at Thrive AI Health, where I designed the AI coaching engine and lead the design team. At Sesame, I partnered with the CPO and CTO to expand from pay-per-visit care into membership programs, so patients who needed ongoing care got it. At lululemon, I led the app design system and the launch of lululemon Membership.</p>
+      <p style="margin-top: 12px; font-size: 16px;">Along the way I've grown design teams and led three design systems. My work lives where trust decides everything, and where research and data, not opinions, decide what gets built.</p>
     </section>
 
     <p class="obj note-hand" data-x="1790" data-y="-70" style="rotate: 2deg;">drag us around ↓</p>
@@ -617,7 +624,7 @@
       <div class="art art-img"><img src="case-studies/img/sesame-hero.jpg" alt="Sesame home page on mobile and desktop" loading="lazy" style="object-position: center top;"></div>
       <div class="meta">
         <div><p class="when">2024–2025</p><h3>Sesame <span>· Lead Product Designer</span></h3>
-        <p>Partnered with the CPO and CTO to move Sesame from pay-per-visit care to membership programs, redesigning the patient journey from the home page to intake and the provider portal.</p>
+        <p>Partnered with the CPO and CTO to add membership programs alongside pay-per-visit care, redesigning the patient journey from the home page to intake and the provider portal.</p>
         <p class="wins" style="--w: var(--lilac); --wi: var(--lilac-ink);"><span>+42% booking conversion</span><span>~3&times; revenue after the redesigns</span><span>First profitable year</span></p></div>
         <button type="button" class="go" data-cs="sesame">Read case study →</button>
       </div>
@@ -684,7 +691,7 @@
         <p class="lead-h">Small, senior teams. Shared systems. Roadmaps backed by evidence.</p></div>
         <div class="lead-stats">
           <span><b>8 years</b>designing health, fitness and commerce products</span>
-          <span><b>2</b>design systems led, at Sesame and lululemon</span>
+          <span><b>3</b>design systems led, at Thrive, Sesame and lululemon</span>
           <span><b>CPO + CTO</b>partner on strategy; presented to Apple SVPs</span>
         </div>
       </div>
@@ -692,7 +699,7 @@
         <ul class="lead-list">
           <li><b>Raise the bar for thinking.</b> At Thrive I set a culture of systematic design thinking, from problem framing through UI craft.</li>
           <li><b>Bring evidence to the roadmap.</b> At lululemon I used churn data to get connectivity prioritized, then cut churn citing it from 40% to 2%.</li>
-          <li><b>Build systems that speed teams up.</b> I co-founded Sesame's Tahini design system and led lululemon Studio's, raising developer productivity 64%.</li>
+          <li><b>Build systems that speed teams up.</b> I lead Thrive's design system, co-founded Sesame's Tahini and led lululemon Studio's, which raised developer productivity 64%.</li>
         </ul>
       </div>
     </article>
@@ -1169,12 +1176,12 @@
   const frameEl = id => $(`[data-frame="${id}"]`);
   const FRAMES = {
     hello: 'Intro. Chris Chon, lead product designer in San Francisco who builds AI health products people can trust, and the teams and systems that ship them.',
-    about: 'About. Eight years of designing health, fitness and commerce products, from apple.com to an AI health coach. Today Chris leads product design at Thrive AI Health, where he designed the AI coaching engine and leads the design team. At Sesame he partnered with the CPO and CTO to move the company from pay-per-visit care to membership programs. At lululemon he led the app design system and the launch of lululemon Membership. He has grown and led design teams and led two design systems. Focus areas: AI coaching and agents, care programs and memberships, design systems, growth and conversion.',
-    thrive: 'Thrive AI Health (current role, 2025 to now). Lead Product Designer for a personalized AI health coach that helps people build healthier daily habits. Leads the design team and set a culture of systematic design thinking, from problem framing through UI craft. Designed the AI coaching engine (how the coach helps members set goals and targets, then turns them into daily health actions) and built a ChatGPT connector for Lilly\'s clinical-trial navigator AI, helping patients find and connect with clinical trials. Chris designed the GLP-1 coaching experience: medication taking, symptom logging and learning, nutrition and activity recommendations and learnings, pattern recognition, patient education, and accountability. An overview is on the canvas; deeper details are shared in conversation.',
-    sesame: 'Sesame (2024 to 2025). Lead Product Designer, working with the CPO and CTO. Rebuilt the patient journey around trust as Sesame moved from pay-per-visit care to ongoing care programs: patient research, information architecture, the home page, a program landing page and intake, medication pages, a provider portal, and a first version of an AI chat that helps patients get to care. Built Tahini, Sesame\'s design system, with the design systems engineer. Specific results are in the full case study.',
-    lululemon: 'lululemon (2022 to 2024). Senior Product Designer. Designed fitness and community features across the lululemon Studio app, the Mirror and the website. Projects: lululemon Membership (the in-app membership experience, written with product and built with engineering and data), class workout controls that made device connectivity clear, and the app design system, which Chris led with two other designers, including handoff documentation and Figma guides for engineering. Specific results are in the full case studies.',
+    about: 'About. Eight years of designing health, fitness and commerce products, from apple.com to an AI health coach. Today Chris leads product design at Thrive AI Health, where he designed the AI coaching engine and manages three designers. At Sesame he partnered with the CPO and CTO to expand from pay-per-visit care into membership programs, so patients who needed ongoing care got it. At lululemon he led the app design system and the launch of lululemon Membership. Across those teams he has managed seven designers and led three design systems (Thrive AI Health, Sesame and lululemon Studio). Focus areas: AI coaching and agents, care programs and memberships, design systems, growth and conversion.',
+    thrive: 'Thrive AI Health (current role, 2025 to now). Lead Product Designer for a personalized AI health coach that helps people build healthier daily habits. Manages 3 designers and set a culture of systematic design thinking, from problem framing through UI craft. Designed the AI coaching engine (how the coach helps members set goals and targets, then turns them into daily health actions) and built a ChatGPT connector for Lilly\'s clinical-trial navigator AI, helping patients find and connect with clinical trials. Chris designed the GLP-1 coaching experience: medication taking, symptom logging and learning, nutrition and activity recommendations and learnings, pattern recognition, patient education, and accountability. An overview is on the canvas; deeper details are shared in conversation.',
+    sesame: 'Sesame (2024 to 2025). Lead Product Designer, managing 2 designers. Rebuilt the patient journey around trust as Sesame added ongoing care programs alongside its pay-per-visit care, so patients who needed ongoing care got it: patient research, information architecture, the home page, a program landing page and intake, medication pages, a provider portal, and a first version of an AI chat that helps patients get to care. Built Tahini, Sesame\'s design system, with the design systems engineer. Specific results are in the full case study.',
+    lululemon: 'lululemon (2022 to 2024). Senior Product Designer, managing 2 e-commerce designers. Designed fitness and community features across the lululemon Studio app, the Mirror and the website. Projects: lululemon Membership (the in-app membership experience, written with product and built with engineering and data), class workout controls that made device connectivity clear, and the app design system, which Chris led with two other designers, including handoff documentation and Figma guides for engineering. Specific results are in the full case studies.',
     apple: 'Apple. Product Design. Designed desktop and mobile applications for apple.com, the Apple Store app, and internal applications, including shopping and ordering experiences. Specific results and details are in the full case study.',
-    lead: 'How I lead (on this canvas). built and led design teams at Thrive, Sesame and lululemon; 2 design systems led (co-founded Sesame\'s Tahini design system with the design systems engineer; led the lululemon Studio app design system, raising developer productivity 64%); partner to the CPO and CTO on strategy; presented to Apple SVPs. Practices: set a culture of systematic design thinking at Thrive; used churn data at lululemon to get device connectivity on the roadmap, then cut churn citing connectivity from 40% to 2% over three releases; roadmap calls backed by research and data.',
+    lead: 'How I lead (on this canvas). 7 designers managed across Thrive, Sesame and lululemon; 3 design systems led (leads Thrive AI Health\'s design system; co-founded Sesame\'s Tahini design system with the design systems engineer; led the lululemon Studio app design system, raising developer productivity 64%); partner to the CPO and CTO on strategy; presented to Apple SVPs. Practices: set a culture of systematic design thinking at Thrive; used churn data at lululemon to get device connectivity on the roadmap, then cut churn citing connectivity from 40% to 2% over three releases; roadmap calls backed by research and data.',
     earlier: 'Earlier work. Tesla (2018), UX Researcher: global vehicle readiness during the Model 3 production ramp; UX research that justified business cases and drove changes in quality procedures, engineering processes and vehicle design (under NDA, details only in conversation). myD-H Assistant (2020), Product Designer: an iPad app that helps patients with serious illness keep up with their care team during long hospital stays, with the Dartmouth Institute and Dartmouth-Hitchcock Medical Center.',
     genui: 'Generative UI demo (on this canvas). A concept where an AI fills a fixed coaching-card schema and the design system controls layout, color, length limits, a referral path for medical questions, and a fallback state. Shows how Chris thinks about designing AI products.',
     principles: 'How I design with AI (on this canvas). Chris\'s principles: show the plan then act; answer from sources; design the system, not the sentence; say what you don\'t know; keep people in control.'
@@ -1483,7 +1490,7 @@ Otherwise reply only:
 
   /* Password protection for case studies (live site). Pages and images are AES-GCM encrypted;
      the key comes from the password via PBKDF2, so the password isn't stored anywhere. */
-  const LOCK = {"salt": "gh/XIQ9BhS69fp8k4Vwe0g==", "iter": 250000, "check": "T36vYsHaBMaE3nphZeLQ9orvEb8tzIydiC4tLe8LCFjt7WFhYOX4dw==", "imgs": ["a-app-flow.jpg", "a-entry.jpg", "a-ia.jpg", "a-journey-map.jpg", "a-paidy.jpg", "a-progress.jpg", "a-review.jpg", "a-sketch-checklist.jpg", "a-sketch-progressbar.jpg", "ds-anatomy.jpg", "ds-annotations.jpg", "ds-button.jpg", "ds-cover.jpg", "ds-eng-guides.jpg", "ds-overview.jpg", "ll-benefits-sheet.jpg", "ll-connectivity-thumb.jpg", "ll-controls-first.jpg", "ll-ia-new.jpg", "ll-ia-old.jpg", "ll-membership-card.jpg", "ll-membership-cover.jpg", "ll-option-activity.jpg", "ll-option-home.jpg", "ll-pkg-final.jpg", "ll-pkg-render.jpg", "ll-settings-card.jpg", "ll-stage1.jpg", "ll-stage2.jpg", "ll-stage3-final.jpg", "s-ai-preview.jpg", "s-ask-ai.jpg", "s-home-hero.jpg", "s-ia-new.jpg", "s-ia-old.jpg", "s-intake.jpg", "s-medication-pages.jpg", "s-program-pages.jpg", "s-provider-portal.jpg", "s-super-menu.jpg"]};
+  const LOCK = {"salt": "gh/XIQ9BhS69fp8k4Vwe0g==", "iter": 250000, "check": "T36vYsHaBMaE3nphZeLQ9orvEb8tzIydiC4tLe8LCFjt7WFhYOX4dw==", "imgs": ["a-app-flow.jpg", "a-entry.jpg", "a-ia.jpg", "a-journey-map.jpg", "a-paidy.jpg", "a-progress.jpg", "a-review.jpg", "a-sketch-checklist.jpg", "a-sketch-progressbar.jpg", "ds-anatomy.jpg", "ds-annotations.jpg", "ds-button.jpg", "ds-cover.jpg", "ds-eng-guides.jpg", "ds-overview.jpg", "ll-benefits-sheet.jpg", "ll-connectivity-thumb.jpg", "ll-controls-first.jpg", "ll-ia-new.jpg", "ll-ia-old.jpg", "ll-membership-card.jpg", "ll-membership-cover.jpg", "ll-option-activity.jpg", "ll-option-home.jpg", "ll-pkg-final.jpg", "ll-pkg-render.jpg", "ll-settings-card.jpg", "ll-stage1.jpg", "ll-stage2.jpg", "ll-stage3-final.jpg", "s-ai-preview.jpg", "s-ask-ai.jpg", "s-home-hero.jpg", "s-ia-new.jpg", "s-ia-old.jpg", "s-intake.jpg", "s-medication-pages.jpg", "s-program-pages.jpg", "s-provider-portal.jpg", "s-super-menu.jpg", "t-hero.jpg", "t-r2-tracker.jpg", "t-r4-coach.jpg", "t-cycle.jpg", "t-prep-page.jpg", "t-scan-chat.jpg", "t-dose-start.jpg", "t-dose-dinner.jpg", "t-dose-pen.jpg", "t-mon-log.jpg", "t-mon-call.jpg", "t-ep-helped.jpg", "t-ep-closed.jpg"]};
   const b64 = s => Uint8Array.from(atob(s), ch => ch.charCodeAt(0));
   let csKey = null;
   const KEY_STORE = 'cc-cs-key';
