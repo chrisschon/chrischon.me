@@ -583,7 +583,7 @@
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <p class="hi">hi there!</p>
       <h1>I'm Chris Chon.</h1>
-      <p class="lede">I design intuitive human experiences that live on screens, in real life, or somewhere in between.<br>I’ve spent eight years on health, fitness and commerce products at places like Apple, lululemon and Sesame.</p>
+      <p class="lede">I design intuitive human experiences that live on screens, in real life, or somewhere in between.<br><br>I’ve spent eight years on health, fitness and commerce products at places like Apple, lululemon and Sesame.</p>
       <div class="chips">
         <button type="button" class="chip dark" data-go="work">See the work</button>
         <button type="button" class="chip ai-chip" data-ai="ask"><svg class="sparkle" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.6 4.8L14.4 6.4 9.6 8 8 12.8 6.4 8 1.6 6.4 6.4 4.8z"/><path d="M13 10.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg>Ask AI about my work</button>
@@ -636,8 +636,8 @@
 
     <!-- WORK -->
     <h2 class="obj canvas-title" id="work-title" data-x="0" data-y="560">Selected work<small>Health, fitness and retail, newest first.</small></h2>
-    <p class="obj note-hand" id="work-note" data-x="640" data-y="600" style="rotate: -2deg;">start here ↘</p>
-    <p class="obj note-hand" id="work-note2" data-x="1820" data-y="600" style="rotate: 2deg;">the turnaround story ↘</p>
+    <p class="obj note-hand" id="work-note" data-x="640" data-y="600" style="rotate: -2deg;">what I’m currently working on ↘</p>
+    <p class="obj note-hand" id="work-note2" data-x="1820" data-y="600" style="rotate: 2deg;">a growth story ↘</p>
 
     <article class="obj frame proj wide" data-frame="thrive" data-name="Thrive AI Health" data-group="work" data-x="0" data-y="700" data-w="1120" tabindex="0" aria-label="Thrive AI Health project">
       <div class="flabel">Thrive AI Health · Current · iOS</div>
@@ -697,14 +697,14 @@
         <div class="lead-stats">
           <span><b>8 years</b>designing health, fitness and commerce products</span>
           <span><b>3</b>design systems led, at Thrive AI Health, Sesame and lululemon</span>
-          <span><b>40% → 2%</b>churn from connectivity issues at lululemon, after I got it on the roadmap</span>
+          <span><b>64%</b>more productive developers after the lululemon Studio design system</span>
         </div>
       </div>
       <div class="meta">
         <ul class="lead-list">
-          <li><b>Frame the problem first.</b> At Thrive AI Health I've built a team habit of systematic design thinking, from problem framing through UI craft.</li>
-          <li><b>Use data to set priorities.</b> At lululemon I used churn data and member feedback to get device connectivity on the roadmap months before it was prioritized.</li>
-          <li><b>Invest in systems.</b> I lead Thrive AI Health's design system, co-founded Sesame's Tahini and led lululemon Studio's, which made developers 64% more productive.</li>
+          <li><b>Frame the problem first.</b> At Thrive AI Health, Sesame and lululemon I start with research and a clear question, whether that's user interviews and usage data or one-on-ones with the engineers who build from the system, then design.</li>
+          <li><b>Use data to set priorities.</b> Churn data and member feedback put connectivity on lululemon's roadmap. Usage data and interviews explained Sesame's booking drop-off. Beta interviews and usage data decide what Thrive AI Health ships next.</li>
+          <li><b>Invest in systems.</b> I lead Thrive AI Health's design system, co-founded Sesame's Tahini and led lululemon Studio's, so design and engineering build the same thing the same way.</li>
         </ul>
       </div>
     </article>
@@ -1626,7 +1626,7 @@ Otherwise reply only:
     const row1 = Math.max(H, ...[$('[data-frame="about"]'), ...$$('[data-note]:not([data-mine])')].map(el => (+el.dataset.oy || el.offsetTop) + el.offsetHeight));
     const title = $('#work-title'), y1 = row1 + 130;
     title.style.top = y1 + 'px';
-    $$('#work-note, #work-note2').forEach(n => n.style.top = (y1 + 30) + 'px');
+    $$('#work-note, #work-note2').forEach(n => n.style.top = (y1 + 100) + 'px');
     const wide = $$('.proj.wide'), small = $$('.proj:not(.wide):not(.other)'), other = $$('.proj.other');
     if (innerWidth < 700) {
       // Match home(): the intro frame (plus 10px padding) fills the usable width.
