@@ -233,6 +233,8 @@
   .note p, .note li { font-size: 15px; }
   .note ul, .note ol { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 3px; }
   .note [contenteditable] { user-select: text; outline: none; }
+.note ul.bul li { position: relative; padding-left: 15px; }
+.note ul.bul li::before { content: ""; position: absolute; left: 1px; top: calc(0.5lh - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--bi, currentColor); }
 .note.path { width: 250px; }
 .note .path-list { gap: 0; margin-top: 12px; }
 .path-list li { display: grid; grid-template-columns: 30px minmax(0, 1fr); column-gap: 10px; align-items: center; }
@@ -619,7 +621,7 @@
     </div>
     <div class="obj note" data-note data-x="2060" data-y="30" style="background: var(--sky); rotate: 2deg;">
       <p class="eyebrow" style="color: var(--sky-ink)">Where I go deep</p>
-      <ul style="font-weight: 500;"><li>AI coaching and agents</li><li>Care programs and memberships</li><li>Design systems</li><li>Growth and conversion</li></ul>
+      <ul class="bul" style="font-weight: 500; --bi: var(--sky-ink);"><li>AI coaching and agents</li><li>Care programs and memberships</li><li>Design systems</li><li>Growth and conversion</li></ul>
     </div>
     <div class="obj note path" id="path-note" data-note data-x="1790" data-y="200" style="background: var(--lilac); rotate: 1deg;">
       <p class="eyebrow" style="color: var(--lilac-ink)">Path</p>
@@ -633,7 +635,7 @@
     </div>
     <div class="obj note" data-note data-x="2075" data-y="250" style="background: var(--butter); rotate: -1.5deg;">
       <p class="eyebrow" style="color: var(--butter-ink)">Interests</p>
-      <ul style="font-weight: 500;"><li>Cooking, food and wine</li><li>Farms and restaurants</li><li>Travel</li><li>Running, swimming and hiking</li><li>How things are made, from fabrics to metal and wood</li></ul>
+      <ul class="bul" style="font-weight: 500; --bi: var(--butter-ink);"><li>Cooking, food and wine</li><li>Farms and restaurants</li><li>Travel</li><li>Running, swimming and hiking</li><li>How things are made, from fabrics to metal and wood</li></ul>
     </div>
 
     <!-- WORK -->
