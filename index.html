@@ -8,6 +8,10 @@
   .cs-gate-err { color: #b42318; font-size: 14px; }
   .cs-gate-help { font-size: 14px; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .about-doodle { mix-blend-mode: multiply; }
+  :root[data-theme="dark"] .about-doodle { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .about-doodle { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; } }
 </style>
 <title>Chris Chon · Lead Product Designer</title>
 <meta name="description" content="Chris Chon is a Lead Product Designer in San Francisco building AI health products people can trust, and the teams and systems behind them.">
@@ -609,7 +613,7 @@
       <div class="flabel"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 2h8v6l-2 2H2z"/></svg>About me</div>
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <h2 style="font: 500 52px/1 var(--display); letter-spacing: -0.01em;">About me</h2>
-      <div class="about-doodle-wrap" style="margin-top: 18px; color: var(--ink);"><svg class="about-doodle" viewBox="0 0 480 150" width="100%" role="img" aria-label="Doodle of a curious person looking at a gear through a magnifying glass, with mountains behind" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"> <path d="M262 136 L312 72 L338 104 L362 76 L420 136"/> <path d="M312 72 L303 86 L313 82 L321 90" stroke-width="2.2"/> <path d="M362 76 V58 L378 62 L362 67" stroke-width="2.2"/> <path d="M424 46 q6 -6 12 0 q6 -6 12 0" stroke-width="2.2"/> <path d="M396 30 q5 -5 10 0 q5 -5 10 0" stroke-width="2"/> <path d="M24 136 C 130 133, 250 138, 456 135"/> <path d="M130 114 L124 136 M150 114 L156 136"/> <path d="M120 84 Q140 76 160 84 L166 116 H114 Z" fill="var(--panel)"/> <path d="M123 90 Q114 100 108 110"/> <path d="M157 90 Q170 86 180 76"/> <circle cx="140" cy="52" r="24" fill="var(--panel)"/> <path d="M116 50 C114 32 128 24 142 25 C158 26 167 38 164 52 C156 44 146 42 136 45 C128 48 121 48 116 50 Z" fill="currentColor"/> <path d="M129 60 q3 -3 6 0 M147 60 q3 -3 6 0" stroke-width="2.2"/> <path d="M133 68 q8 6 15 0" stroke-width="2.2"/> <path d="M180 76 L190 66" stroke-width="3.4"/> <circle cx="206" cy="52" r="21" fill="var(--mint)"/> <g transform="translate(206 52) scale(.62)" stroke-width="3.6"> <path d="M-2 -18 L2 -18 L4 -23 L10 -21 L9 -15 L13 -12 L19 -14 L21 -8 L16 -5 L16 -1 L21 2 L19 8 L13 6 L10 10 L11 16 L5 18 L3 13 L-2 13 L-4 18 L-10 16 L-9 10 L-12 6 L-18 8 L-20 2 L-15 -1 L-15 -5 L-20 -8 L-18 -14 L-12 -12 L-9 -15 L-10 -21 L-4 -23 Z"/> <circle cx="0" cy="-3" r="5"/> </g> <path d="M238 24 v10 M233 29 h10" stroke-width="2.2"/> <path d="M92 36 v8 M88 40 h8" stroke-width="2.2"/> <path d="M246 60 l7 -2 M244 72 l8 2" stroke-width="2"/> </svg></div>
+      <img class="about-doodle" src="case-studies/img/about-doodle.jpg" width="1220" height="796" alt="Doodle of Chris sitting cross-legged with a laptop, surrounded by what he cares about: listening first to people, empathy, evidence and simplicity, staying curious and traveling, hiking, running and swimming, and cooking" loading="lazy" style="display: block; width: 100%; height: auto; margin-top: 16px;">
       <p style="margin-top: 20px; font-size: 20px; color: var(--ink);">I'm a curious, adventurous product designer who's happiest figuring out how things work, and how people actually live with them.</p>
       <p style="margin-top: 14px; font-size: 16px;">I believe good design starts with listening. Empathy and evidence beat opinions, the simplest answer is usually the right one, and the best work comes from small teams who trust each other. I try to stay curious, say yes to the unfamiliar, and leave things clearer than I found them.</p>
     </section>
