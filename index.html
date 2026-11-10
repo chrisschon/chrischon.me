@@ -98,6 +98,7 @@
   .frame:focus-visible { outline: none; }
   .frame::after { content: ""; position: absolute; inset: calc(-2px * var(--iz)); border-radius: inherit; border: calc(1.5px * var(--iz)) solid var(--select); opacity: 0; pointer-events: none; transition: opacity .15s; }
   .frame:hover::after { opacity: .55; }
+  .proj[style*="--hl"]:hover::after { border-color: var(--hl); opacity: 1; }   /* hover outline matches the card's tag color */
   .frame.selected::after, .frame:focus-visible::after { opacity: 1; }
   .flabel { position: absolute; font-weight: 500; left: 0; bottom: 100%; max-width: calc(var(--fw, 2000px) * var(--zz, 1)); overflow: hidden; text-overflow: ellipsis; transform-origin: 0 100%; transform: scale(var(--iz)); padding-bottom: 7px; font: 500 13px/1 var(--mono); color: var(--muted); white-space: nowrap; display: flex; gap: 6px; align-items: center; pointer-events: none; }
   .frame.selected .flabel { color: var(--select); }
@@ -213,7 +214,7 @@
   .stats span { display: grid; align-content: start; gap: 6px; font-size: 13.5px; line-height: 1.35; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
   .stats b { font: 500 30px/1 var(--display); letter-spacing: -0.01em; color: var(--stat, var(--lilac-ink)); }
   .wide .go { grid-column: 2; grid-row: 1; margin-top: 8px; }
-  .wide .meta > div { grid-column: 1; grid-row: 1 / span 2; }
+  .wide .meta > div { grid-column: 1; grid-row: 1 / span 2; display: grid; gap: 6px; align-content: start; }   /* same text rhythm as the smaller cards */
 
   /* CSS device mockups */
   .device { position: absolute; background: var(--device); box-shadow: var(--shadow); }
@@ -324,6 +325,7 @@
   @media (pointer: fine) {
     html.fig-cursor #viewport, html.fig-cursor #viewport * { cursor: var(--cur) !important; }
     html.fig-cursor #viewport [contenteditable="true"] { cursor: text !important; }
+    html.fig-cursor[data-cur="move"] #viewport .tap-card, html.fig-cursor[data-cur="move"] #viewport .tap-card * { cursor: pointer !important; }
   }
 
   /* ---------- AI ---------- */
@@ -651,7 +653,7 @@
     <h2 class="obj canvas-title" id="work-title" data-x="0" data-y="560">Selected work<small>Health, fitness and retail, newest first.</small></h2>
     <p class="obj note-hand" id="work-note" data-x="640" data-y="600" style="rotate: -2deg;">what I’m currently working on ↓</p>
 
-    <article class="obj frame proj wide" data-frame="thrive" data-name="Thrive AI Health" data-group="work" data-x="0" data-y="700" data-w="1120" tabindex="0" aria-label="Thrive AI Health project">
+    <article class="obj frame proj wide" data-frame="thrive" data-name="Thrive AI Health" data-group="work" data-x="0" data-y="700" data-w="1120" tabindex="0" aria-label="Thrive AI Health project" style="--hl: var(--peach-ink);">
       <div class="flabel">Thrive AI Health · Current · iOS</div>
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <div class="art art-img" style="background: var(--peach)"><img src="case-studies/img/thrive-hero.jpg?v=2" alt="The Thrive AI Health GLP-1 page on a phone: your next dose is coming up Thursday, with a card from the coach" loading="lazy" style="object-position: center top;"></div>
@@ -663,7 +665,7 @@
       </div>
     </article>
 
-    <article class="obj frame proj wide" data-frame="sesame" data-name="Sesame" data-group="work" data-x="1180" data-y="700" data-w="1120" tabindex="0" aria-label="Sesame project">
+    <article class="obj frame proj wide" data-frame="sesame" data-name="Sesame" data-group="work" data-x="1180" data-y="700" data-w="1120" tabindex="0" aria-label="Sesame project" style="--hl: var(--lilac-ink);">
       <div class="flabel">Sesame · Web + iOS</div>
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <div class="art art-img"><img src="case-studies/img/sesame-hero.jpg?v=2" alt="The Sesame home page: Open Sesame for care in minutes, with a box asking what you need help with" loading="lazy" style="object-position: center top;"></div>
@@ -675,7 +677,7 @@
       </div>
     </article>
 
-    <article class="obj frame proj" data-frame="lululemon" data-name="lululemon" data-group="work" data-x="0" data-y="1360" data-w="726" tabindex="0" aria-label="lululemon project">
+    <article class="obj frame proj" data-frame="lululemon" data-name="lululemon" data-group="work" data-x="0" data-y="1360" data-w="726" tabindex="0" aria-label="lululemon project" style="--hl: var(--pink-ink);">
       <div class="flabel">lululemon · Studio Mirror + App</div>
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <div class="art art-img"><img src="case-studies/img/lululemon-hero.jpg" alt="lululemon Studio app and Apple Watch over a member working out at home" loading="lazy" style="object-position: center 40%;"></div>
@@ -688,7 +690,7 @@
       </div>
     </article>
 
-    <article class="obj frame proj" data-frame="apple" data-name="Apple" data-group="work" data-x="787" data-y="1360" data-w="726" tabindex="0" aria-label="Apple project">
+    <article class="obj frame proj" data-frame="apple" data-name="Apple" data-group="work" data-x="787" data-y="1360" data-w="726" tabindex="0" aria-label="Apple project" style="--hl: var(--sky-ink);">
       <div class="flabel">Apple · apple.com + Apple Store app</div>
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <div class="art art-img" style="background: #fafafa;"><img src="case-studies/img/apple-hero.jpg" alt="iPhone 13 Pro in four finishes" loading="lazy" style="position: absolute; left: 0; top: 38%; width: 100%; height: auto;"></div>
@@ -701,7 +703,7 @@
       </div>
     </article>
 
-    <article class="obj frame proj lead" data-frame="lead" data-name="How I lead a design team" data-group="work" data-x="1574" data-y="1360" data-w="726" tabindex="0" aria-label="How I lead a design team">
+    <article class="obj frame proj lead" data-frame="lead" data-name="How I lead a design team" data-group="work" data-x="1574" data-y="1360" data-w="726" tabindex="0" aria-label="How I lead a design team" style="--hl: var(--mint-ink);">
       <div class="flabel">How I lead a design team</div>
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <div class="art lead-top">
@@ -1009,6 +1011,11 @@
     const l = e.target.closest('[data-layer]'); if (l) { hideHint(); select($(`[data-frame="${l.dataset.layer}"]`)); }
   });
   frames.forEach(f => f.addEventListener('focus', () => { if (f.matches(':focus-visible') && !f.classList.contains('selected')) select(f); }));
+  frames.forEach(f => {
+    const cs = f.matches('.proj:not(.other)') && f.querySelector('.go[data-cs]'); if (!cs) return;
+    f.classList.add('tap-card');
+    f.addEventListener('keydown', e => { if (e.target === f && e.key === 'Enter') { e.preventDefault(); openCase(cs.dataset.cs); } });
+  });
   vp.addEventListener('scroll', () => { vp.scrollTop = 0; vp.scrollLeft = 0; });
   $('#layers-tog').addEventListener('click', e => {
     const L = $('#layers'), open = L.dataset.open !== 'true';
@@ -1024,9 +1031,9 @@
     sticky: svgCur(`<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path d='M11 2v18M2 11h18' stroke='#fff' stroke-width='4' stroke-linecap='round'/><path d='M11 2v18M2 11h18' stroke='#1e1e1e' stroke-width='1.6' stroke-linecap='round'/><path d='M16 16h12v8l-4 4h-8z' fill='#fdf1c7' stroke='#1e1e1e' stroke-width='1.4' stroke-linejoin='round'/><path d='M24 28v-4h4' fill='none' stroke='#1e1e1e' stroke-width='1.4' stroke-linejoin='round'/></svg>`, 11, 11, 'copy'),
     hand: 'grab', grabbing: 'grabbing'
   };
-  document.documentElement.classList.add('fig-cursor');
+  document.documentElement.classList.add('fig-cursor'); document.documentElement.dataset.cur = 'move';
   let mode = 'move', spaceHeld = false;
-  const setCur = k => document.documentElement.style.setProperty('--cur', curs[k] || curs.move);
+  const setCur = k => { document.documentElement.style.setProperty('--cur', curs[k] || curs.move); document.documentElement.dataset.cur = k; };
   const restCur = () => setCur(spaceHeld ? 'hand' : mode);
   const setMode = m => {
     mode = m; restCur();
@@ -1117,7 +1124,11 @@
     if (g.type === 'pan') {
       if (!g.moved && !g.force) {
         const f = g.target.closest && g.target.closest('[data-frame]');
-        f ? (hideHint(), select(f)) : select(null, false);
+        // Project cards are one big tap target for their case study; other frames just select.
+        // Zooming to a frame only happens from the Layers panel (and keyboard focus).
+        const cs = f && f.classList.contains('tap-card') && f.querySelector('.go[data-cs]');
+        if (cs) { hideHint(); openCase(cs.dataset.cs); }
+        else f ? (hideHint(), select(f, false)) : select(null, false);
       }
       restCur();
     }
