@@ -603,7 +603,7 @@
       <i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i><span class="dims"></span>
       <p class="hi">hi there!</p>
       <h1>I'm Chris Chon.</h1>
-      <p class="lede">I design intuitive human experiences that live on screens, in real life, or somewhere in between.<br><br>Today I’m a lead product designer building AI products people can trust, and the teams and systems behind them. I’ve designed healthcare, fitness and consumer experiences for 8+ years at places like Sesame, lululemon and Apple.</p>
+      <p class="lede">I design intuitive human experiences that live on screens, in real life, or somewhere in between.<br><br>I’m a lead product designer building AI products people can trust, and the teams and systems behind them. I’ve designed healthcare, fitness and consumer experiences for 8+ years at places like Sesame, lululemon and Apple.</p>
       <div class="chips">
         <button type="button" class="chip dark" data-go="work">See the work</button>
         <button type="button" class="chip ai-chip" data-ai="ask"><svg class="sparkle" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.6 4.8L14.4 6.4 9.6 8 8 12.8 6.4 8 1.6 6.4 6.4 4.8z"/><path d="M13 10.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg>Ask AI about my work</button>
@@ -1523,8 +1523,8 @@ Otherwise reply only:
     thrive: { file: 'case-studies/thrive-hub.html', name: 'Thrive AI Health', orig: '' },
     'thrive-glp1': { file: 'case-studies/thrive.html', name: 'GLP-1 coaching', parent: 'thrive', frame: 'thrive', orig: '' },
     'thrive-flows': { file: 'case-studies/thrive-flows.html', name: 'Flows', parent: 'thrive-glp1', frame: 'thrive', orig: '' },
-    'thrive-lilly': { file: 'case-studies/thrive-lilly.html', name: 'Lilly Clinical Trials Navigator', parent: 'thrive', frame: 'thrive', orig: '' },
-    'thrive-chatgpt': { file: 'case-studies/thrive-chatgpt.html', name: 'ChatGPT app', parent: 'thrive', frame: 'thrive', orig: '' },
+    'thrive-p1': { file: 'case-studies/thrive-p1.html', name: 'Case study', hidden: true, parent: 'thrive', frame: 'thrive', orig: '' },
+    'thrive-p2': { file: 'case-studies/thrive-p2.html', name: 'Case study', hidden: true, parent: 'thrive', frame: 'thrive', orig: '' },
     sesame: { file: 'case-studies/sesame-hub.html', name: 'Sesame', orig: 'https://www.chrischon.me/sesame' },
     'sesame-patient': { file: 'case-studies/sesame.html', name: 'Patient experience', parent: 'sesame', frame: 'sesame', orig: 'https://www.chrischon.me/sesame' },
     'sesame-provider': { file: 'case-studies/sesame-provider.html', name: 'Provider portal and Care Queue', parent: 'sesame', frame: 'sesame', orig: '' },
@@ -1533,8 +1533,8 @@ Otherwise reply only:
     connectivity: { file: 'case-studies/connectivity.html', name: 'Connectivity', parent: 'lululemon', orig: 'https://www.chrischon.me/lululemon' },
     'design-system': { file: 'case-studies/design-system.html', name: 'Design system', parent: 'lululemon', orig: 'https://www.chrischon.me/lululemon' },
     apple: { file: 'case-studies/apple-hub.html', name: 'Apple', orig: 'https://www.chrischon.me/apple' },
-    'apple-getready': { file: 'case-studies/apple.html', name: 'Get Ready for iPhone 13', parent: 'apple', frame: 'apple', orig: 'https://www.chrischon.me/apple' },
-    'apple-flex': { file: 'case-studies/apple-flex.html', name: 'Flex', parent: 'apple', frame: 'apple', orig: '' },
+    'apple-p1': { file: 'case-studies/apple.html', name: 'Case study', hidden: true, parent: 'apple', frame: 'apple', orig: 'https://www.chrischon.me/apple' },
+    'apple-p2': { file: 'case-studies/apple-p2.html', name: 'Case study', hidden: true, parent: 'apple', frame: 'apple', orig: '' },
     tesla: { file: 'case-studies/tesla.html', name: 'Tesla', frame: 'earlier', orig: 'https://www.chrischon.me/tesla' }
   };
   const CASE_IDS = Object.keys(CASES);
@@ -1608,6 +1608,22 @@ Otherwise reply only:
   }
   const csCache = {};
   let csOpen = null;
+  // Names of partner and internal projects live only inside the encrypted pages (data-name on the
+  // article), so the public source shows "Case study" until the page is unlocked.
+  const pageName = html => { const m = html.match(/<article[^>]*\sdata-name="([^"]+)"/); return m ? m[1] : null; };
+  function learnName(id, html) { const c = CASES[id], n = pageName(html); if (c && n) { c.name = n; c.hidden = false; } }
+  async function peekName(id) {
+    const c = CASES[id]; if (!c || !c.hidden || !csKey) return;
+    try { const r = await fetch(c.file + '.enc'); if (!r.ok) return; learnName(id, new TextDecoder().decode(await decryptBytes(b64((await r.text()).trim())))); } catch {}
+  }
+  function setCrumb(id) {
+    const c = CASES[id];
+    $('#cs-crumb').innerHTML = c.parent ? `Selected work / <button type="button" class="crumb-link" data-cs="${c.parent}">${CASES[c.parent].name}</button> / ${c.name}` : `Selected work / ${c.name}`;
+  }
+  function setNext(nextId) {
+    const b = $('#cs-next'); if (b.dataset.cs !== nextId) return;
+    b.textContent = CASES[nextId].hidden ? 'Next case study →' : `Next: ${CASES[nextId].name} →`;
+  }
   async function openCase(id, fly = true) {
     const c = CASES[id]; if (!c) return;
     if (csOpen && csOpen !== id) { fly = false; csView.scrollTop = 0; }
@@ -1615,19 +1631,19 @@ Otherwise reply only:
     if (!$('#ai-panel').hidden) closeAi();
     const f = frameEl(c.frame || c.parent || id);
     if (fly && f && !reduce) { select(f, false); await flyTo(pad(boxOf(f), 8), 3); }
-    $('#cs-crumb').innerHTML = c.parent ? `Selected work / <button type="button" class="crumb-link" data-cs="${c.parent}">${CASES[c.parent].name}</button> / ${c.name}` : `Selected work / ${c.name}`;
+    setCrumb(id);
     const nextId = CASE_IDS[(CASE_IDS.indexOf(id) + 1) % CASE_IDS.length];
-    $('#cs-next').dataset.cs = nextId; $('#cs-next').textContent = `Next: ${CASES[nextId].name} →`;
+    $('#cs-next').dataset.cs = nextId; setNext(nextId);
     csView.hidden = false; document.body.classList.add('cs-open');
     requestAnimationFrame(() => csView.classList.add('on'));
     csView.scrollTop = 0;
     try { if (location.hash !== '#' + id) history.pushState(null, '', '#' + id); } catch {}
     if (!csCache[id]) {
       csBody.innerHTML = '<p class="cs-loading">Loading case study…</p>';
-      try { const html = await loadLocked(id, c.file); if (html == null) return; csCache[id] = html; }
+      try { const html = await loadLocked(id, c.file); if (html == null) return; csCache[id] = html; learnName(id, html); }
       catch { if (csOpen === id) csBody.innerHTML = '<p class="cs-loading">This case study couldn\'t load. Check your connection and try again.</p>'; return; }
     }
-    if (csOpen === id) csBody.innerHTML = csCache[id];
+    if (csOpen === id) { csBody.innerHTML = csCache[id]; setCrumb(id); peekName(nextId).then(() => setNext(nextId)); }
     $('#cs-back').focus({ preventScroll: true });
   }
   function closeCase(fromPop = false) {
