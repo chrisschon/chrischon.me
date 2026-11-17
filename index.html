@@ -1638,9 +1638,35 @@ Otherwise reply only:
     try { if (!fromPop && location.hash) history.pushState(null, '', location.pathname + location.search); } catch {}
     const f = frameEl((CASES[id] && (CASES[id].frame || CASES[id].parent)) || id); if (f) { select(f, false); flyTo(pad(boxOf(f), 24), 1); f.focus({ preventScroll: true }); }
   }
+  // Section shortcuts: lazy images above the target grow as they load, which pushed sections down
+  // mid-scroll. Load the images above the target first, then scroll, then re-align once it settles.
+  let jumpSeq = 0;
+  async function jumpTo(t) {
+    const seq = ++jumpSeq;
+    const above = [...csView.querySelectorAll('img')].filter(im => !im.complete && (t.compareDocumentPosition(im) & Node.DOCUMENT_POSITION_PRECEDING));
+    above.forEach(im => { im.loading = 'eager'; });
+    if (above.length) await Promise.race([Promise.all(above.map(im => im.decode().catch(() => {}))), new Promise(r => setTimeout(r, 1500))]);
+    if (seq !== jumpSeq) return;
+    t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    let cancel = false, last = -1, still = 0, n = 0;
+    const stop = () => { cancel = true; };
+    ['wheel', 'touchstart', 'keydown'].forEach(ev => csView.addEventListener(ev, stop, { once: true, passive: true }));
+    const tick = () => {
+      if (cancel || seq !== jumpSeq || ++n > 40) return;
+      const st = csView.scrollTop;
+      if (st === last) {
+        const want = parseFloat(getComputedStyle(t).scrollMarginTop) || 0;
+        const off = t.getBoundingClientRect().top - csView.getBoundingClientRect().top - want;
+        const next = Math.max(0, Math.min(csView.scrollHeight - csView.clientHeight, st + off));
+        if (Math.abs(next - st) > 4) { csView.scrollTop = next; still = 0; } else if (++still > 2) return;
+      }
+      last = st; setTimeout(tick, 120);
+    };
+    setTimeout(tick, 250);
+  }
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-cs]'); if (b) { e.preventDefault(); openCase(b.dataset.cs); return; }
-    const j = e.target.closest('[data-jump]'); if (j) { const t = document.getElementById(j.dataset.jump); if (t) t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); return; }
+    const j = e.target.closest('[data-jump]'); if (j) { const t = document.getElementById(j.dataset.jump); if (t) jumpTo(t); return; }
     if (e.target.closest('[data-ai-cs="contact"]')) { closeCase(); setTimeout(() => go('contact'), 50); }
   });
   const lb = document.createElement('div'); lb.id = 'lb'; lb.hidden = true; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-label', 'Image preview'); lb.innerHTML = '<img alt="">'; document.body.appendChild(lb);
